@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShapeScript : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class ShapeScript : MonoBehaviour
     private SceneController controller;
    
     private bool mainShapeIsFind = false;
-    private GameObject[] goodShapes, badShapes, allShapes;
+    private GameObject[] goodShapes, badShapes;
 
     public void OnMouseDown()
     {
@@ -24,6 +25,7 @@ public class ShapeScript : MonoBehaviour
             }
             Debug.Log("you win");
             mainShapeIsFind = true;
+            SceneManager.LoadScene("Level_2_Scene");
         }
         else
         {

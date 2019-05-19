@@ -56,9 +56,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BackButtonScript.cs" />
+     <Compile Include="Assets\Scripts\Level2ControllerScript.cs" />
      <Compile Include="Assets\Scripts\MainMenuScript.cs" />
      <Compile Include="Assets\Scripts\SceneController.cs" />
      <Compile Include="Assets\Scripts\ShapeScript.cs" />
+     <Compile Include="Assets\Scripts\SquareScript.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/5 СЕМЕСТР/GAMEDESIGN/testingshapes/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
