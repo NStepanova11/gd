@@ -6,11 +6,6 @@ using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {
-    public const int gridRows = 2; 
-    public const int gridCols = 4;
-    public const float offsetX = 2f;
-    public const float offsetY = 2.5f;
-
     [SerializeField]
     private ShapeScript shape; 
     [SerializeField] private Sprite[] images;
