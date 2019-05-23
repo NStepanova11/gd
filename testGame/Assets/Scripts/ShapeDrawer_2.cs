@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShapeDrawer_1 : MonoBehaviour
+public class ShapeDrawer_2 : MonoBehaviour
 {
     [SerializeField]
     private Shape shape; 
     [SerializeField] private Sprite[] circleImages;
-	[SerializeField] private Sprite[] rectImages;
+	[SerializeField] private Sprite[] butterflyImages;
 	[SerializeField] private Sprite[] flowerImages;
     private Sprite[] images;
 
@@ -15,13 +15,13 @@ public class ShapeDrawer_1 : MonoBehaviour
 	public GameObject levelObject;
 	private int shapeType;
 	
-	private string levelPurpose = "Найти 1  из 5 фигур одного размера";
+	private string levelPurpose = "Найти 1  из 2 фигур одного размера";
 	
-	private int[] posIndexes = {0,0,0,0,0,1,1,1,1,2,2,2,2};
-	int[,] pos = new int[,] { 
-		{ 0, 0 }, { 0, 2 }, { -1, -1 }, { -1, 1 }, { 2, -2 }, 
-		{ 0, -2 }, { 2, 0 }, { -2, 2 }, { -2, -2 },
-		{ -2, 0 }, { 1, -1 }, { 1, 1 }, { 2, 2 } };
+	private int[] posIndexes = {0,0,1,1,1,2,2,2,2,2,3,3,3};
+	float[,] pos = new float[,] { 
+		{ -0.1f, 2.1f }, { -0.6f, 0.85f }, { -0.16f, -2f }, { -2f, 2.1f }, { -2.04f, 0.65f }, 
+		{ -1.5f, -0.7f }, { 1.4f, -0.9f }, { 0.9f, 1.2f }, { 2f, 0.3f },
+		{ -2.1f, -2f }, { 1.9f, -2.1f }, { 2f, 2.1f }, { -0.08f, -0.5f } };
 	
 	void Start()
 	{
@@ -29,7 +29,6 @@ public class ShapeDrawer_1 : MonoBehaviour
 		UpdateArrayOfImages(); //выбирает один из 3-х спрайтов как основной(перемещает его на 0 позицию)
 		ShuffleCoords(); //перемешивает координаты расстановки фигур (фигуры заданы 0-1-2=спрайты)
 		
-		//
 		for(int i=0; i<posIndexes.Length; i++)
 		{
 			if(posIndexes[i]==0)
@@ -59,6 +58,16 @@ public class ShapeDrawer_1 : MonoBehaviour
 				cloneShape.transform.SetParent(levelObject.transform, false);
 				cloneShape.transform.position = new Vector3(pos[i, 0], pos[i, 1], 0);
 			}
+			
+			else if (posIndexes[i]==3)
+			{
+				Shape cloneShape;
+				cloneShape = Instantiate(shape) as Shape;
+				cloneShape.tag = "SubShape";
+				cloneShape.SetShape(images[posIndexes[i]]);
+				cloneShape.transform.SetParent(levelObject.transform, false);
+				cloneShape.transform.position = new Vector3(pos[i, 0], pos[i, 1], 0);
+			}
 		}
 	}
 	
@@ -71,7 +80,7 @@ public class ShapeDrawer_1 : MonoBehaviour
 		}
 		else if (shapeType==1)
 		{
-			images = rectImages.Clone() as Sprite[];
+			images = butterflyImages.Clone() as Sprite[];
 		}
 		else if (shapeType==2)
 		{
@@ -93,9 +102,11 @@ public class ShapeDrawer_1 : MonoBehaviour
 	
 	public void UpdateArrayOfImages()
 	{
+		//выбор главной фигуры
+		int mainShape = Random.Range(0, images.Length);	
 		Sprite subShape = images[0];
-		images[0] = images[shapeType];
-		images[shapeType] = subShape;
+		images[0] = images[mainShape];
+		images[mainShape] = subShape;
 		
 	}
 }

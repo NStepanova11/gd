@@ -60,6 +60,16 @@ public class GameController : MonoBehaviour
 		Debug.Log("win pressed");
     }
 	
+	public void NextLevelPressed()
+	{
+		level_id++;
+		levelCanvas[level_id].SetActive(true);
+		interfaceCanvas.SetActive(true);
+		winPanelCanvas.SetActive(false);
+
+		Debug.Log("next level pressed");
+	}
+	
 	public void HelpButtonPressed()
 	{
 		mainMenuCanvas.SetActive(false);
