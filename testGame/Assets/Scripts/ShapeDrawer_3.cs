@@ -2,26 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShapeDrawer_2 : MonoBehaviour
+public class ShapeDrawer_3 : MonoBehaviour
 {
-    [SerializeField]
+   [SerializeField]
     private Shape shape; 
     [SerializeField] private Sprite[] circleImages;
-	[SerializeField] private Sprite[] butterflyImages;
-	[SerializeField] private Sprite[] flowerImages;
-    private Sprite[] images;
+	[SerializeField] private Sprite[] rectImages;
+    [SerializeField] private Sprite[] formImages;
 
+	
+    private Sprite[] images;
 
 	public GameObject levelObject;
 	private int shapeType;
 	
-	private string levelPurpose = "Найти 1  из 2 фигур одного размера";
+	private string levelPurpose = "Найти 1  из 4 фигур одного размера";
 	
-	private int[] posIndexes = {0,0,1,1,1,2,2,2,2,2,3,3,3};
+	private int[] posIndexes = {0,0,0,0,1,1,1,1,1,2,2,2};
 	float[,] pos = new float[,] { 
-		{ -2f, 1f }, { -2f, -0.5f }, { -2f, -2f }, { -0.7f, 2f }, { -0.7f, 0.5f }, 
-		{ -0.7f, -1f }, { 0.7f, 0.5f }, { 0.7f, -1f }, { 0f, -2f },
-		{ 2f, 1.5f }, { 2f, -0f }, { 2f, -1.5f }, { 0.7f, 2f } };
+		{-2f, 2f}, {-2f, 0.5f}, {-2f, -1f}, {-0.7f, 1f}, {-0.7f, -0.5f}, 
+		{-0.7f, -2f}, {0.7f, 1f}, {0.7f, -0.5f}, {0.7f, -2f},
+		{2f, 2f}, {2f, 0.5f}, {2f, -1f} };
 	
 	void Start()
 	{
@@ -80,11 +81,11 @@ public class ShapeDrawer_2 : MonoBehaviour
 		}
 		else if (shapeType==1)
 		{
-			images = butterflyImages.Clone() as Sprite[];
+			images = rectImages.Clone() as Sprite[];
 		}
 		else if (shapeType==2)
 		{
-			images = flowerImages.Clone() as Sprite[];
+			images = formImages.Clone() as Sprite[];
 		}
 	}
 	
