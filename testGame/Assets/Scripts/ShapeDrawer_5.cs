@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShapeDrawer_2 : MonoBehaviour
+public class ShapeDrawer_5 : MonoBehaviour
 {
     [SerializeField]
     private Shape shape; 
-    [SerializeField] private Sprite[] circleImages;
-	[SerializeField] private Sprite[] butterflyImages;
+    [SerializeField] private Sprite[] shapeImages;
+	/*[SerializeField] private Sprite[] butterflyImages;
 	[SerializeField] private Sprite[] flowerImages;
+	*/
     private Sprite[] images;
 
 
@@ -17,10 +18,10 @@ public class ShapeDrawer_2 : MonoBehaviour
 	
 	private string levelPurpose = "Найти 1  из 2 фигур одного размера";
 	
-	private int[] posIndexes = {0,0,1,1,1,2,2,2,2,3,3,3};
+	private int[] posIndexes = {0,0,0,0,1,1,2,2,2,3,3,3};
 	float[,] pos = new float[,] { 
 		{ -2f, 2f }, { -2f, 0.5f }, { -2f, -1f }, { -0.7f, 1f }, { -0.7f, -0.5f }, 
-		{ -0.7f, -2f }, { 0.7f, 2f }, { 0.7f, 0.5f }, { 0.7f, -1f },
+		{ -0.5f, -2f }, { 0.5f, 2f }, { 0.7f, 0.5f }, { 0.7f, -1f },
 		{ 2f, 1f }, { 2f, -0.5f }, { 2f, -2f } };
 	
 	void Start()
@@ -73,7 +74,7 @@ public class ShapeDrawer_2 : MonoBehaviour
 	
 	public void GetShapeType()
 	{
-		shapeType = Random.Range(0, 3);	
+		/*shapeType = Random.Range(0, 3);	
 		if(shapeType==0)
 		{
 			images = circleImages.Clone() as Sprite[];
@@ -86,6 +87,9 @@ public class ShapeDrawer_2 : MonoBehaviour
 		{
 			images = flowerImages.Clone() as Sprite[];
 		}
+		*/
+		
+		images = shapeImages.Clone() as Sprite[];
 	}
 	
 	
