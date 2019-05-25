@@ -31,6 +31,7 @@ public class ShapeDrawer_2 : MonoBehaviour
 		
 		for(int i=0; i<posIndexes.Length; i++)
 		{
+			
 			if(posIndexes[i]==0)
 			{
 				Shape cloneShape;
@@ -39,6 +40,8 @@ public class ShapeDrawer_2 : MonoBehaviour
 				cloneShape.SetShape(images[posIndexes[i]]);
 				cloneShape.transform.SetParent(levelObject.transform, false);
 				cloneShape.transform.position = new Vector3(pos[i,0], pos[i,1], 0);
+				Renderer rend = cloneShape.GetComponent<SpriteRenderer>();
+                rend.material.color = GetColor();
 			}
 			else if (posIndexes[i]==1)
 			{
@@ -48,6 +51,8 @@ public class ShapeDrawer_2 : MonoBehaviour
 				cloneShape.SetShape(images[posIndexes[i]]);
 				cloneShape.transform.SetParent(levelObject.transform, false);
 				cloneShape.transform.position = new Vector3(pos[i, 0], pos[i, 1], 0);
+				Renderer rend = cloneShape.GetComponent<SpriteRenderer>();
+                rend.material.color = GetColor();
 			}
 			else if (posIndexes[i]==2)
 			{
@@ -57,6 +62,8 @@ public class ShapeDrawer_2 : MonoBehaviour
 				cloneShape.SetShape(images[posIndexes[i]]);
 				cloneShape.transform.SetParent(levelObject.transform, false);
 				cloneShape.transform.position = new Vector3(pos[i, 0], pos[i, 1], 0);
+				Renderer rend = cloneShape.GetComponent<SpriteRenderer>();
+                rend.material.color = GetColor();
 			}
 			
 			else if (posIndexes[i]==3)
@@ -67,6 +74,8 @@ public class ShapeDrawer_2 : MonoBehaviour
 				cloneShape.SetShape(images[posIndexes[i]]);
 				cloneShape.transform.SetParent(levelObject.transform, false);
 				cloneShape.transform.position = new Vector3(pos[i, 0], pos[i, 1], 0);
+				Renderer rend = cloneShape.GetComponent<SpriteRenderer>();
+                rend.material.color = GetColor();
 			}
 		}
 	}
@@ -108,5 +117,18 @@ public class ShapeDrawer_2 : MonoBehaviour
 		images[0] = images[mainShape];
 		images[mainShape] = subShape;
 		
+	}
+	
+	public Color GetColor()
+	{
+		int colorType = Random.Range(0, 2);	
+		if (colorType==1)
+		{
+			return( new Color(0.7f, 0.3f, 0.8f, 1f));
+		}
+		else
+		{
+			return( new Color(0f, 0.6f, 0.9f, 1));
+		}
 	}
 }

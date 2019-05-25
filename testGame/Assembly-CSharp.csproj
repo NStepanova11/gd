@@ -64,6 +64,9 @@
      <Compile Include="Assets\Scripts\ShapeDrawer_3.cs" />
      <Compile Include="Assets\Scripts\ShapeDrawer_4.cs" />
      <Compile Include="Assets\Scripts\ShapeDrawer_5.cs" />
+     <Compile Include="Assets\Scripts\ShapeDrawer_6.cs" />
+     <Compile Include="Assets\Scripts\ShapeDrawer_7.cs" />
+     <Compile Include="Assets\Scripts\ShapeDrawer_8.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/5 СЕМЕСТР/GAMEDESIGN/testGame/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

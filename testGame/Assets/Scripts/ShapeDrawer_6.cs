@@ -2,36 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShapeDrawer_4 : MonoBehaviour
+public class ShapeDrawer_6 : MonoBehaviour
 {
     [SerializeField]
     private Shape shape; 
-    [SerializeField] private Sprite[] cleverImages;
-    [SerializeField] private Sprite[] starImages;
-
-	
+    [SerializeField] private Sprite[] shapeImages;
+	/*[SerializeField] private Sprite[] butterflyImages;
+	[SerializeField] private Sprite[] flowerImages;
+	*/
     private Sprite[] images;
 
 
 	public GameObject levelObject;
 	private int shapeType;
 	
-	private string levelPurpose = "Найти 1  из 3 фигур одного размера";
+	private string levelPurpose = "Найти 1  из 2 фигур одного размера";
 	
-	private int[] posIndexes = {0,0,0,1,1,1,1,2,2};
+	private int[] posIndexes = {0,0,1,1,1,2,2,2,2,3};
 	float[,] pos = new float[,] { 
-		{ 0f, 0f }, { 0f, 1.5f }, { -1.5f, -0f }, { -2f, -2f }, { 2f, 2f }, 
-		{ 1.5f, 0f }, { 0f, -1.5f }, { -2f, 2f }, { 2f, -2f }};
+		{ -2f, 2f }, { -2f, 0f }, { -2f, -2f }, { -0.7f, 1f }, { -0.7f, -1f }, 
+		{ 0.7f, 1f }, { 0.7f, -1f },
+		{ 2f, 2f }, { 2f, 0f }, { 2f, -2f } };
 	
 	private int[] rotateAngles = {45, 90, 135, 180};
-	
+
+		
 	void Start()
 	{
 		GetShapeType(); //выбирает тип фигуры для игры (круг квадрат или цветок)
 		UpdateArrayOfImages(); //выбирает один из 3-х спрайтов как основной(перемещает его на 0 позицию)
 		ShuffleCoords(); //перемешивает координаты расстановки фигур (фигуры заданы 0-1-2=спрайты)
 		
-		//
 		for(int i=0; i<posIndexes.Length; i++)
 		{
 			if(posIndexes[i]==0)
@@ -64,20 +65,38 @@ public class ShapeDrawer_4 : MonoBehaviour
 				cloneShape.transform.position = new Vector3(pos[i, 0], pos[i, 1], 0);
 				cloneShape.transform.Rotate(0, 0, getAngle());
 			}
+			
+			else if (posIndexes[i]==3)
+			{
+				Shape cloneShape;
+				cloneShape = Instantiate(shape) as Shape;
+				cloneShape.tag = "SubShape";
+				cloneShape.SetShape(images[posIndexes[i]]);
+				cloneShape.transform.SetParent(levelObject.transform, false);
+				cloneShape.transform.position = new Vector3(pos[i, 0], pos[i, 1], 0);
+				cloneShape.transform.Rotate(0, 0, getAngle());
+			}
 		}
 	}
 	
 	public void GetShapeType()
 	{
-		shapeType = Random.Range(0, 2);	
+		/*shapeType = Random.Range(0, 3);	
 		if(shapeType==0)
 		{
-			images = cleverImages.Clone() as Sprite[];
+			images = circleImages.Clone() as Sprite[];
 		}
 		else if (shapeType==1)
 		{
-			images = starImages.Clone() as Sprite[];
+			images = butterflyImages.Clone() as Sprite[];
 		}
+		else if (shapeType==2)
+		{
+			images = flowerImages.Clone() as Sprite[];
+		}
+		*/
+		
+		images = shapeImages.Clone() as Sprite[];
 	}
 	
 	
@@ -94,9 +113,11 @@ public class ShapeDrawer_4 : MonoBehaviour
 	
 	public void UpdateArrayOfImages()
 	{
+		//выбор главной фигуры
+		int mainShape = Random.Range(0, images.Length);	
 		Sprite subShape = images[0];
-		images[0] = images[shapeType];
-		images[shapeType] = subShape;
+		images[0] = images[mainShape];
+		images[mainShape] = subShape;
 		
 	}
 	
