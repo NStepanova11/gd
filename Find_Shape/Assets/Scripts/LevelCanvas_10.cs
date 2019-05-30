@@ -2,25 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelCanvas_2 : MonoBehaviour
+public class LevelCanvas_10 : MonoBehaviour
 {
     public Shape shape; 
     public Sprite[] shapeType_1;
-	public Sprite[] shapeType_2;
-	public Sprite[] shapeType_3;
+    public Sprite[] shapeType_2;
+
     private Sprite[] images;
 
-	public GameObject levelObject;
+    public GameObject levelObject;
 	private int shapeType;
 	
 	private string levelPurpose = "Найти 1  из 2 фигур одного размера";
 	
-	private int[] posIndexes = {0,0,1,1,1,1,1,2,2,2,2,2};
+	private int[] posIndexes = {0,0,0,1,1,2,3,3,3,3};
 	float[,] pos = new float[,] { 
-		{ -2f, 2f }, { -2f, 0.5f }, { -2f, -1f }, { -0.7f, 1f }, { -0.7f, -0.5f }, 
-		{ -0.7f, -2f }, { 0.7f, 2f }, { 0.7f, 0.5f }, { 0.7f, -1f },
-		{ 2f, 1f }, { 2f, -0.5f }, { 2f, -2f } };
+		{ -2f, 2f }, { -1f, 1f }, { 1f, 1f }, 
+		{ 2f, 0f }, { 2f, 2f } ,{ -1f, -1f }, { -2f, -2f },
+		{-2f, 0f}, {1f, -1f}, {2f, -2f}};
 	
+	private int[] rotateAngles = {30, 60, 90, 120, 150, 180};
+
 	void Start()
 	{
 		GetShapeType(); //выбирает тип фигуры для игры (круг квадрат или цветок)
@@ -29,17 +31,18 @@ public class LevelCanvas_2 : MonoBehaviour
 		
 		for(int i=0; i<posIndexes.Length; i++)
 		{
-			Shape cloneShape = Instantiate(shape) as Shape;
+            Shape cloneShape;
+            cloneShape = Instantiate(shape) as Shape;
             cloneShape.SetShape(images[posIndexes[i]]);
             cloneShape.transform.SetParent(levelObject.transform, false);
             cloneShape.transform.position = new Vector3(pos[i,0], pos[i,1], 0);
-            cloneShape.transform.localScale = new Vector3(40, 40, 0);
-			Renderer rend = cloneShape.GetComponent<SpriteRenderer>();
+            Renderer rend = cloneShape.GetComponent<SpriteRenderer>();
             rend.material.color = GetColor();
-			
-            if(posIndexes[i]==0)
+            cloneShape.transform.Rotate(0, 0, getAngle());
+
+			if(posIndexes[i]==0)
 			{
-				cloneShape.tag = "MainShape";
+                cloneShape.tag = "MainShape";
 			}
 			else if (posIndexes[i]==1)
 			{
@@ -49,13 +52,21 @@ public class LevelCanvas_2 : MonoBehaviour
 			{
 				cloneShape.tag = "SubShape";
 			}
+			else if (posIndexes[i]==3)
+			{
+				cloneShape.tag = "SubShape";
+			}
 		}
 	}
 	
 	public void GetShapeType()
 	{
-		shapeType = Random.Range(0, 3);	
-		if(shapeType==0)
+		shapeType = Random.Range(0, 2);	
+		/*if(shapeType==0)
+		{
+			images = starImages.Clone() as Sprite[];
+		}
+		else*/ if (shapeType==0)
 		{
 			images = shapeType_1.Clone() as Sprite[];
 		}
@@ -63,10 +74,7 @@ public class LevelCanvas_2 : MonoBehaviour
 		{
 			images = shapeType_2.Clone() as Sprite[];
 		}
-		else if (shapeType==2)
-		{
-			images = shapeType_3.Clone() as Sprite[];
-		}
+		//images = shapeImages.Clone() as Sprite[];
 	}
 	
 	
@@ -96,11 +104,17 @@ public class LevelCanvas_2 : MonoBehaviour
 		int colorType = Random.Range(0, 2);	
 		if (colorType==1)
 		{
-			return( new Color(0.7f, 0.3f, 0.8f, 1f));
+			return( new Color(0.9f, 0.5f, 0.7f, 1f));
 		}
 		else
 		{
-			return( new Color(0f, 0.6f, 0.9f, 1));
+			return( new Color(0.7f, 0.5f, 0.9f, 1f));
 		}
+	}
+	
+		private int getAngle()
+	{
+		int r = Random.Range(0, rotateAngles.Length);
+		return rotateAngles[r];
 	}
 }
