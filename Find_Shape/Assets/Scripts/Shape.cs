@@ -5,25 +5,23 @@ using UnityEngine;
 public class Shape : MonoBehaviour
 {
     private Renderer renderrer;
+    public GameController gameController;
     private GameObject[] goodShapes, badShapes;
-		
-	//скрипт обрабатывает событие нажатия на фигуру
-	
-	//при нажатии на фигуру
-	public bool OnMousePressed()
+
+    public void OnMouseDown()
     {
-		bool status = false;
         renderrer = GetComponent<SpriteRenderer>();
-        Debug.Log("go tag = " + renderrer.tag);
-		
+        renderrer.material.color = Color.yellow;
+
         if (renderrer.tag=="MainShape")
         {
+            
             for (int i = 0; i < goodShapes.Length; i++)
             {
                 Renderer rend = goodShapes[i].GetComponent<SpriteRenderer>();
                 rend.material.color = Color.green;
-				status = true;
             }
+            gameController.LoadWinScene();
         }
         else
         {
@@ -37,9 +35,8 @@ public class Shape : MonoBehaviour
                 Renderer rend = badShapes[i].GetComponent<SpriteRenderer>();
                 rend.material.color = Color.red;
             }
-            Debug.Log("you lose");
+            gameController.LoadLoseScene();
         }
-			return status;
     }
 
     public void SetShape(Sprite image)

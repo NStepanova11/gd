@@ -9,7 +9,6 @@ public class GameController : MonoBehaviour
 	[SerializeField] private GameObject losePanelCanvas; //канвас панели проигрыша
 	[SerializeField] private GameObject mainMenuCanvas; // канвас меню
 	[SerializeField] private GameObject helpCanvas; // канвас справки
-	
 	[SerializeField] private GameObject[] levelCanvas; // массив канвасов уровней
 	
 	[SerializeField] private Shape shape;
@@ -35,12 +34,11 @@ public class GameController : MonoBehaviour
 	public void PlayButtonPressed()
 	{
 		mainMenuCanvas.SetActive(false);
-		
 		interfaceCanvas.SetActive(true);
 		levelCanvas[level_id].SetActive(true);
 	}
 	
-	public void OnMouseUp()
+	public void OnMouseDown()
 	{
 		levelUp = shape.OnMousePressed();
 		Debug.Log("level: "+levelUp);

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7523358074460856127}
   - component: {fileID: 7523358074460856121}
   - component: {fileID: 7523358074460856126}
-  - component: {fileID: 8021096742488874159}
   - component: {fileID: -3211585341748782070}
+  - component: {fileID: -7788771498617176239}
   m_Layer: 0
   m_Name: 100
   m_TagString: Untagged
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_Size: {x: 1.2, y: 1.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &7523358074460856126
@@ -98,7 +98,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &8021096742488874159
+--- !u!114 &-3211585341748782070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7523358074460856124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4440677c6064eb48a3e3648aa4c469d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-7788771498617176239
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,16 +135,12 @@ MonoBehaviour:
   levelCanvas:
   - {fileID: 2117173099186043921, guid: ed03e05130677aa4ab3808e171371987, type: 3}
   - {fileID: 2117173099186043921, guid: ed03e05130677aa4ab3808e171371987, type: 3}
+  - {fileID: 2117173099186043921, guid: ed03e05130677aa4ab3808e171371987, type: 3}
+  - {fileID: 2117173099186043921, guid: ed03e05130677aa4ab3808e171371987, type: 3}
+  - {fileID: 2117173099186043921, guid: ed03e05130677aa4ab3808e171371987, type: 3}
+  - {fileID: 2117173099186043921, guid: ed03e05130677aa4ab3808e171371987, type: 3}
+  - {fileID: 2117173099186043921, guid: ed03e05130677aa4ab3808e171371987, type: 3}
+  - {fileID: 2117173099186043921, guid: ed03e05130677aa4ab3808e171371987, type: 3}
+  - {fileID: 2117173099186043921, guid: ed03e05130677aa4ab3808e171371987, type: 3}
+  - {fileID: 2117173099186043921, guid: ed03e05130677aa4ab3808e171371987, type: 3}
   shape: {fileID: -3211585341748782070}
---- !u!114 &-3211585341748782070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7523358074460856124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4440677c6064eb48a3e3648aa4c469d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

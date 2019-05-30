@@ -104,8 +104,6 @@ public class ShapeDrawer_10 : MonoBehaviour
 		{
 			images = flowerImages.Clone() as Sprite[];
 		}
-		
-		
 		//images = shapeImages.Clone() as Sprite[];
 	}
 	

@@ -1320,6 +1320,97 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2117173099186043921, guid: ed03e05130677aa4ab3808e171371987,
+        type: 3}
+      propertyPath: m_Name
+      value: GameController
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117173099186043921, guid: ed03e05130677aa4ab3808e171371987,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
+        type: 3}
+      propertyPath: levelCanvas.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
+        type: 3}
+      propertyPath: winPanelCanvas
+      value: 
+      objectReference: {fileID: 2117173097471988727}
+    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
+        type: 3}
+      propertyPath: losePanelCanvas
+      value: 
+      objectReference: {fileID: 2117173097471988726}
+    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
+        type: 3}
+      propertyPath: mainMenuCanvas
+      value: 
+      objectReference: {fileID: 2117173097471988725}
+    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
+        type: 3}
+      propertyPath: helpCanvas
+      value: 
+      objectReference: {fileID: 2117173097471988724}
+    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
+        type: 3}
+      propertyPath: levelCanvas.Array.data[0]
+      value: 
+      objectReference: {fileID: 750205413}
+    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
+        type: 3}
+      propertyPath: levelCanvas.Array.data[1]
+      value: 
+      objectReference: {fileID: 2117173097471988718}
+    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
+        type: 3}
+      propertyPath: levelCanvas.Array.data[2]
+      value: 
+      objectReference: {fileID: 2117173097471988722}
+    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
+        type: 3}
+      propertyPath: shape
+      value: 
+      objectReference: {fileID: -3211585341748782070, guid: aee5dc2dd2391e449b759ef66d26850f,
+        type: 3}
+    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
+        type: 3}
+      propertyPath: levelCanvas.Array.data[3]
+      value: 
+      objectReference: {fileID: 1272070518}
+    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
+        type: 3}
+      propertyPath: levelCanvas.Array.data[4]
+      value: 
+      objectReference: {fileID: 2117173097471988728}
+    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
+        type: 3}
+      propertyPath: levelCanvas.Array.data[5]
+      value: 
+      objectReference: {fileID: 514803133}
+    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
+        type: 3}
+      propertyPath: levelCanvas.Array.data[6]
+      value: 
+      objectReference: {fileID: 1064202469}
+    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
+        type: 3}
+      propertyPath: levelCanvas.Array.data[7]
+      value: 
+      objectReference: {fileID: 1516380117}
+    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
+        type: 3}
+      propertyPath: levelCanvas.Array.data[8]
+      value: 
+      objectReference: {fileID: 2117173097471988721}
+    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
+        type: 3}
+      propertyPath: levelCanvas.Array.data[9]
+      value: 
+      objectReference: {fileID: 2117173097471988732}
     - target: {fileID: 4520877192126530136, guid: ed03e05130677aa4ab3808e171371987,
         type: 3}
       propertyPath: shapeImages.Array.size
@@ -1602,96 +1693,6 @@ PrefabInstance:
       propertyPath: m_PixelPerfect
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2117173099186043921, guid: ed03e05130677aa4ab3808e171371987,
-        type: 3}
-      propertyPath: m_Name
-      value: GameController
-      objectReference: {fileID: 0}
-    - target: {fileID: 2117173099186043921, guid: ed03e05130677aa4ab3808e171371987,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
-        type: 3}
-      propertyPath: levelCanvas.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
-        type: 3}
-      propertyPath: winPanelCanvas
-      value: 
-      objectReference: {fileID: 2117173097471988727}
-    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
-        type: 3}
-      propertyPath: losePanelCanvas
-      value: 
-      objectReference: {fileID: 2117173097471988726}
-    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
-        type: 3}
-      propertyPath: mainMenuCanvas
-      value: 
-      objectReference: {fileID: 2117173097471988725}
-    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
-        type: 3}
-      propertyPath: helpCanvas
-      value: 
-      objectReference: {fileID: 2117173097471988724}
-    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
-        type: 3}
-      propertyPath: levelCanvas.Array.data[0]
-      value: 
-      objectReference: {fileID: 750205413}
-    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
-        type: 3}
-      propertyPath: levelCanvas.Array.data[1]
-      value: 
-      objectReference: {fileID: 2117173097471988718}
-    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
-        type: 3}
-      propertyPath: levelCanvas.Array.data[2]
-      value: 
-      objectReference: {fileID: 2117173097471988722}
-    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
-        type: 3}
-      propertyPath: shape
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
-        type: 3}
-      propertyPath: levelCanvas.Array.data[3]
-      value: 
-      objectReference: {fileID: 1272070518}
-    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
-        type: 3}
-      propertyPath: levelCanvas.Array.data[4]
-      value: 
-      objectReference: {fileID: 2117173097471988728}
-    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
-        type: 3}
-      propertyPath: levelCanvas.Array.data[5]
-      value: 
-      objectReference: {fileID: 514803133}
-    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
-        type: 3}
-      propertyPath: levelCanvas.Array.data[6]
-      value: 
-      objectReference: {fileID: 1064202469}
-    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
-        type: 3}
-      propertyPath: levelCanvas.Array.data[7]
-      value: 
-      objectReference: {fileID: 1516380117}
-    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
-        type: 3}
-      propertyPath: levelCanvas.Array.data[8]
-      value: 
-      objectReference: {fileID: 2117173097471988721}
-    - target: {fileID: 2117173099186043920, guid: ed03e05130677aa4ab3808e171371987,
-        type: 3}
-      propertyPath: levelCanvas.Array.data[9]
-      value: 
-      objectReference: {fileID: 2117173097471988732}
     - target: {fileID: 5394625263413541170, guid: ed03e05130677aa4ab3808e171371987,
         type: 3}
       propertyPath: m_Camera
