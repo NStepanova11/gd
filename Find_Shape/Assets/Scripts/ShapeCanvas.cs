@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShapeCanvas : MonoBehaviour
 {
-    public Shape shape; 	 
+    /*public Shape shape; 	 
     public Sprite[] shapeType_1;
 	public Sprite[] shapeType_2;
 	public Sprite[] shapeType_3;
@@ -25,8 +25,8 @@ public class ShapeCanvas : MonoBehaviour
 		//Debug.Log("уровень: "+levelId);
 
 		pos = gameController.GetShapeCoords(levelId);
-		posIndexes = gameController.GetPosIndexes(levelId);/* */
-		levelPurpose = gameController.GetLevelPurpose(posIndexes);/* */
+		posIndexes = gameController.GetPosIndexes(levelId);
+		levelPurpose = gameController.GetLevelPurpose(posIndexes);
 		Debug.Log(levelPurpose);
 
 		GetShapeType(); //выбирает тип фигуры для игры (круг квадрат или цветок)
@@ -91,4 +91,5 @@ public class ShapeCanvas : MonoBehaviour
 		images[0] = images[shapeType];
 		images[shapeType] = subShape;
 	}
+	*/
 }

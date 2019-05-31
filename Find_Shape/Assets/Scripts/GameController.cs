@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -26,6 +27,18 @@ public class GameController : MonoBehaviour
         sceneNames.Remove("MainMenuScene");
         sceneNames.Remove("WinScene");
         sceneNames.Remove("LoseScene");
+        sceneNames.Remove("HelpScene");
+    }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenuScene");
+    }
+
+    public void ExitButton()
+    {
+        Application.Quit();
+		Debug.Log("Exit pressed!");
     }
 
     public void LoadNewLevelScene()
@@ -49,6 +62,11 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene("LoseScene");
     }
 
+    public void LoadHelpScene()
+    {
+        SceneManager.LoadScene("HelpScene");
+    }
+
     public int GetCurrentLevelNumber()
     {
         Debug.Log("levelId ->"+currentSceneNumber);
@@ -57,9 +75,9 @@ public class GameController : MonoBehaviour
 
     private float[, ] coords;
 
-    public float[,] GetShapeCoords(int levelId)
+    public float[,] GetShapeCoords()
     {
-        switch (levelId)
+        switch (currentSceneNumber)
         {
             case 0:
             {
@@ -79,14 +97,85 @@ public class GameController : MonoBehaviour
                 };
                 break;
             } 
+            case 2:
+            {
+                coords = new float[,] {
+                    {-2f, 2f}, {-2f, 0.5f}, {-2f, -1f}, {-0.7f, 1f}, {-0.7f, -0.5f}, 
+                    {-0.7f, -2f}, {0.7f, 1f}, {0.7f, -0.5f}, {0.7f, -2f},
+                    {2f, 2f}, {2f, 0.5f}, {2f, -1f} 
+                };
+                break;
+            }
+            case 3:
+            {
+                coords = new float[,] {
+                    { 0f, 0f }, { 0f, 1.5f }, { -1.5f, -0f }, { -2f, -2f }, { 2f, 2f }, 
+                    { 1.5f, 0f }, { 0f, -1.5f }, { -2f, 2f }, { 2f, -2f }
+                };
+                break;
+            }
+            case 4:
+            {
+                coords = new float[,] {
+                    { -2f, 2f }, { -2f, 0.5f }, { -2f, -1f }, { -0.7f, 1f }, { -0.7f, -0.5f }, 
+                    { -0.5f, -2f }, { 0.5f, 2f }, { 0.7f, 0.5f }, { 0.7f, -1f },
+                    { 2f, 1f }, { 2f, -0.5f }, { 2f, -2f }
+                };
+                break;
+            }
+            case 5:
+            {
+                coords = new float[,] {
+                    { -2f, 2f }, { -2f, 0f }, { -2f, -2f }, { -0.7f, 1f }, { -0.7f, -1f }, 
+                    { 0.7f, 1f }, { 0.7f, -1f },
+                    { 2f, 2f }, { 2f, 0f }, { 2f, -2f }
+                };
+                break;
+            }
+            case 6:
+            {
+                coords = new float[,] {
+                    { -2f, 2f }, { -2f, 0f }, { -2f, -2f }, { -0.7f, 1f }, { -0.7f, -1f }, 
+                    { 0.7f, 1f }, { 0.7f, -1f },
+                    { 2f, 2f }, { 2f, 0f }, { 2f, -2f }
+                };
+                break;
+            }
+            case 7:
+            {
+                coords = new float[,] {
+                    { -2f, 2f }, { -2f, 0f }, { -2f, -2f }, { -0.7f, 1f }, { -0.7f, -1f }, 
+                    { 0.7f, 1f }, { 0.7f, -1f },
+                    { 2f, 2f }, { 2f, 0f }, { 2f, -2f } 
+                };
+                break;
+            }
+            case 8:
+            {
+                coords = new float[,] {
+                    { -2f, 2f }, { -1f, 1f }, { 1f, 1f }, 
+                    { 2f, 0f }, { 2f, 2f } ,{ -1f, -1f }, { -2f, -2f },
+                    {-2f, 0f}, {1f, -1f}, {2f, -2f}
+                };
+                break;
+            }
+            case 9:
+            {
+                coords = new float[,] {
+                    { -2f, 2f }, { -1f, 1f }, { 1f, 1f }, 
+                    { 2f, 0f }, { 2f, 2f } ,{ -1f, -1f }, { -2f, -2f },
+                    {-2f, 0f}, {1f, -1f}, {2f, -2f}
+                };
+                break;
+            }
         }
         return coords;
     } 
 
     private int[] shapeIndexes;
-    public int[] GetPosIndexes(int levelId)
+    public int[] GetPosIndexes()
     {
-        switch(levelId)
+        switch(currentSceneNumber)
         {
             case 0:
             {
@@ -95,7 +184,7 @@ public class GameController : MonoBehaviour
             }
             case 1:
             {
-                shapeIndexes = new int[]{0,0,1,1,1,2,2,2,2,3,3,3};
+                shapeIndexes = new int[]{0,0,1,1,1,1,1,2,2,2,2,2};
                 break;
             }
             case 2:
