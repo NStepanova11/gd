@@ -21,6 +21,8 @@ public class Shape : MonoBehaviour
                 Renderer rend = goodShapes[i].GetComponent<SpriteRenderer>();
                 rend.material.color = Color.green;
             }
+            gameController.UpdateGameScore();
+            gameController.UpdateRecord();
             gameController.LoadWinScene();
         }
         else
@@ -35,7 +37,12 @@ public class Shape : MonoBehaviour
                 Renderer rend = badShapes[i].GetComponent<SpriteRenderer>();
                 rend.material.color = Color.red;
             }
-            gameController.LoadLoseScene();
+            //gameController.UpdateChanceForLevel();
+            gameController.DeleteOneLife();
+            if (gameController.GetLives()>0)
+                gameController.LoadLoseScene();
+            else
+                gameController.LoadGameOverScene();
         }
     }
 

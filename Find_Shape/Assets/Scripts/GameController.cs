@@ -10,10 +10,47 @@ public class GameController : MonoBehaviour
     private static List<string> sceneNames = new List<string>();
     private static int sceneCount;
     private static int currentSceneNumber=0;
-
+    private static int gameScore = 0;
+    private static int recordScore = 0;
+    private static int livesScore = 3;
+   // private static int chanceByLevel = 2;
+    
     void Start()
     {
         InitSceneNames();
+    }
+
+    public void UpdateGameScore()
+    {
+        gameScore+=100;
+    }
+
+    public int GetGameScore()
+    {
+        return gameScore;
+    }
+
+    public void UpdateRecord()
+    {
+        if (gameScore>recordScore);
+        {
+            recordScore = gameScore;
+        }
+    }
+
+    public int GetLevel()
+    {
+        return currentSceneNumber+1;
+    }
+
+    public int GetLives()
+    {
+        return livesScore;
+    }
+
+    public int GetRecord()
+    {
+        return recordScore;
     }
 
     public void InitSceneNames()
@@ -28,6 +65,7 @@ public class GameController : MonoBehaviour
         sceneNames.Remove("WinScene");
         sceneNames.Remove("LoseScene");
         sceneNames.Remove("HelpScene");
+        sceneNames.Remove("GameOverScene");
     }
 
     public void BackToMainMenu()
@@ -54,6 +92,7 @@ public class GameController : MonoBehaviour
     public void LoadWinScene()
     {
         currentSceneNumber++;
+        //chanceByLevel=2;
         SceneManager.LoadScene("WinScene"); //mainMenuScene
     }
 
@@ -71,6 +110,31 @@ public class GameController : MonoBehaviour
     {
         Debug.Log("levelId ->"+currentSceneNumber);
         return currentSceneNumber;
+    }
+/*
+    public void UpdateChanceForLevel()
+    {
+        chanceByLevel--;
+    }
+
+    public int GetCountOfChances()
+    {
+        return chanceByLevel;
+    }
+*/
+    public void LoadGameOverScene()
+    {
+        int lastScore = gameScore;
+        
+        currentSceneNumber=0;
+        livesScore = 3;
+        gameScore = 0;
+        SceneManager.LoadScene("GameOverscene");
+    }
+
+    public void DeleteOneLife()
+    {
+        livesScore--;
     }
 
     private float[, ] coords;
