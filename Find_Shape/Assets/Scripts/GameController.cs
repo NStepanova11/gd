@@ -13,16 +13,44 @@ public class GameController : MonoBehaviour
     private static int gameScore = 0;
     private static int recordScore = 0;
     private static int livesScore = 3;
+	private int timeLimit=31; 
+    private static int timeBall;
    // private static int chanceByLevel = 2;
     
     void Start()
     {
+        //timeLimit = 31;
         InitSceneNames();
+    }
+
+    public void UpdateTimer()
+    {
+        timeLimit--;
+        timeBall=timeLimit;
+        if (timeLimit==0)
+        {
+            DeleteOneLife();
+            if(livesScore>0)
+            {
+                LoadLoseScene();
+            }
+            else
+            {
+                LoadGameOverScene();    
+            }
+        }
+    }
+
+    public int GetTimeLimit()
+    {
+        return timeLimit;
     }
 
     public void UpdateGameScore()
     {
         gameScore+=100;
+        gameScore+=timeBall;
+        //Debug.Log("-----"+scoreForSeconds);
     }
 
     public int GetGameScore()
@@ -125,7 +153,7 @@ public class GameController : MonoBehaviour
     public void LoadGameOverScene()
     {
         int lastScore = gameScore;
-        
+
         currentSceneNumber=0;
         livesScore = 3;
         gameScore = 0;

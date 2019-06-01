@@ -111,3 +111,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameController: {fileID: 7537624803301938229, guid: 047c14665a64c2e499a704f438b432d9,
     type: 3}
+  timerText: {fileID: 481225502141462960, guid: fa9752e9aab764d458272d90de5c9352,
+    type: 3}

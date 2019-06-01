@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shape : MonoBehaviour
 {
     private Renderer renderrer;
     public GameController gameController;
     private GameObject[] goodShapes, badShapes;
-
+    public Text timerText;
     public void OnMouseDown()
     {
         renderrer = GetComponent<SpriteRenderer>();
@@ -21,6 +22,7 @@ public class Shape : MonoBehaviour
                 Renderer rend = goodShapes[i].GetComponent<SpriteRenderer>();
                 rend.material.color = Color.green;
             }
+            Debug.Log("sec: "+gameController.GetTimeLimit());
             gameController.UpdateGameScore();
             gameController.UpdateRecord();
             gameController.LoadWinScene();

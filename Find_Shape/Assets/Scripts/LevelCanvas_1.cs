@@ -23,6 +23,7 @@ public class LevelCanvas_1 : MonoBehaviour
 	public Text recText;
 	public Text levelTitle;
 	public Text livesText;
+	public Text timerText;
 
 	public bool isChangeAngle;
 	public bool isChangeColor;
@@ -35,6 +36,8 @@ public class LevelCanvas_1 : MonoBehaviour
 		levelPurpose = gameController.GetLevelPurpose(posIndexes);
 		purposeText.text = levelPurpose;
 		
+		InvokeRepeating("RunTimer", 1, 1);
+
 		GetShapeType(); //выбирает тип фигуры для игры (круг квадрат или цветок)
 		UpdateArrayOfImages(); //выбирает один из 3-х спрайтов как основной(перемещает его на 0 позицию)
 		ShuffleCoords(); //перемешивает координаты расстановки фигур (фигуры заданы 0-1-2=спрайты)
@@ -67,6 +70,12 @@ public class LevelCanvas_1 : MonoBehaviour
 		}
 	}
 	
+	void RunTimer() 
+	{
+		gameController.UpdateTimer();
+		timerText.text = gameController.GetTimeLimit().ToString();
+	}
+
 	void Update()
 	{
 		scoreText.text = "Счет: "+gameController.GetGameScore();
