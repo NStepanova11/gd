@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.IO;
 
 public class GameController : MonoBehaviour
 {
@@ -15,12 +16,22 @@ public class GameController : MonoBehaviour
     private static int livesScore = 3;
 	private int timeLimit=31; 
     private static int timeBall;
-   // private static int chanceByLevel = 2;
-    
+    private string fileName = "record.txt";
+    private static int startRecord=0;
+
+    private List<string> notLevelScenes = new List<string>{
+        "MainMenuScene",
+        "WinScene",
+        "LoseScene",
+        "HelpScene",
+        "GameOverScene",
+        "CongratScene"
+    };
     void Start()
     {
-        //timeLimit = 31;
         InitSceneNames();
+        ReadRecord();
+        startRecord = recordScore;
     }
 
     public void UpdateTimer()
@@ -50,6 +61,8 @@ public class GameController : MonoBehaviour
     {
         gameScore+=100;
         gameScore+=timeBall;
+        if (timeBall>20)
+            livesScore++;
         //Debug.Log("-----"+scoreForSeconds);
     }
 
@@ -64,6 +77,36 @@ public class GameController : MonoBehaviour
         {
             recordScore = gameScore;
         }
+
+        if (recordScore>startRecord)
+        {
+            startRecord=recordScore;
+            SaveRecord();
+        }
+    }
+
+    public void SaveRecord()
+    {
+            if (File.Exists(fileName) != true) {  //проверяем есть ли такой файл, если его нет, то создаем
+                using (StreamWriter sw = new StreamWriter(new FileStream(fileName, FileMode.Create, FileAccess.Write))) {
+                    sw.WriteLine(recordScore);             //пишем строчку, или пишем что хотим
+                }
+            } else {                              //если файл есть, то откываем его и пишем в него 
+                using (StreamWriter sw = new StreamWriter(new FileStream(fileName, FileMode.Truncate, FileAccess.Write))) {
+                    (sw.BaseStream).Seek(0, SeekOrigin.End);         //идем в конец файла и пишем строку или пишем то, что хотим
+                    sw.WriteLine(recordScore);
+                }
+        }
+    }
+
+    public void ReadRecord()
+    {
+        string recString;
+        using (StreamReader r = new StreamReader(fileName))
+        {
+            recString =  r.ReadLine();  
+        }
+        recordScore = int.Parse(recString);
     }
 
     public int GetLevel()
@@ -78,6 +121,7 @@ public class GameController : MonoBehaviour
 
     public int GetRecord()
     {
+        Debug.Log(currentSceneNumber+"---"+recordScore);
         return recordScore;
     }
 
@@ -89,11 +133,19 @@ public class GameController : MonoBehaviour
             sceneNames.Add(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex( i )));
         }
 
+
+        for(int j=0; j<notLevelScenes.Count; j++)
+        {
+            sceneNames.Remove(notLevelScenes[j]);
+        }
+        sceneCount-=notLevelScenes.Count;
+       /* 
         sceneNames.Remove("MainMenuScene");
         sceneNames.Remove("WinScene");
         sceneNames.Remove("LoseScene");
         sceneNames.Remove("HelpScene");
         sceneNames.Remove("GameOverScene");
+        */
     }
 
     public void BackToMainMenu()
@@ -109,7 +161,11 @@ public class GameController : MonoBehaviour
 
     public void LoadNewLevelScene()
     {
-        SceneManager.LoadScene(sceneNames[currentSceneNumber]);
+       // Debug.Log("level: "+currentSceneNumber+" count: "+sceneCount);
+        if (currentSceneNumber<sceneCount)
+            SceneManager.LoadScene(sceneNames[currentSceneNumber]);
+        else
+            SceneManager.LoadScene("CongratScene");
     }
 
     public void LoadCurrentLevelScene()
@@ -136,7 +192,7 @@ public class GameController : MonoBehaviour
 
     public int GetCurrentLevelNumber()
     {
-        Debug.Log("levelId ->"+currentSceneNumber);
+        //Debug.Log("levelId ->"+currentSceneNumber);
         return currentSceneNumber;
     }
 /*

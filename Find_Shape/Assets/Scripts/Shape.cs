@@ -13,39 +13,68 @@ public class Shape : MonoBehaviour
     {
         renderrer = GetComponent<SpriteRenderer>();
         renderrer.material.color = Color.yellow;
-
         if (renderrer.tag=="MainShape")
         {
             
+            Invoke("ColorGoodShapes", 1);
+            Invoke("GoToWinScene", 1.5f);
+            /*
             for (int i = 0; i < goodShapes.Length; i++)
             {
                 Renderer rend = goodShapes[i].GetComponent<SpriteRenderer>();
                 rend.material.color = Color.green;
             }
-            Debug.Log("sec: "+gameController.GetTimeLimit());
             gameController.UpdateGameScore();
             gameController.UpdateRecord();
             gameController.LoadWinScene();
+            */
+           
         }
         else
         {
-            for (int i = 0; i < goodShapes.Length; i++)
+            Invoke("ColorAllShapes", 1);
+            Invoke("GoToLoseScene", 1.5f);
+            //gameController.UpdateChanceForLevel();
+            
+        }
+    }
+
+    public void ColorGoodShapes () {
+       for (int i = 0; i < goodShapes.Length; i++)
             {
                 Renderer rend = goodShapes[i].GetComponent<SpriteRenderer>();
-                rend.material.color = Color.red;
-            }
-            for (int i = 0; i < badShapes.Length; i++)
-            {
-                Renderer rend = badShapes[i].GetComponent<SpriteRenderer>();
-                rend.material.color = Color.red;
-            }
-            //gameController.UpdateChanceForLevel();
-            gameController.DeleteOneLife();
-            if (gameController.GetLives()>0)
-                gameController.LoadLoseScene();
-            else
-                gameController.LoadGameOverScene();
+                rend.material.color = Color.green;
         }
+    }
+
+    public void GoToWinScene()
+    {
+        gameController.UpdateGameScore();
+        gameController.UpdateRecord();
+        gameController.LoadWinScene();
+    }
+
+    public void ColorAllShapes()
+    {
+        for (int i = 0; i < goodShapes.Length; i++)
+        {
+            Renderer rend = goodShapes[i].GetComponent<SpriteRenderer>();
+            rend.material.color = Color.red;
+        }
+        for (int i = 0; i < badShapes.Length; i++)
+        {
+            Renderer rend = badShapes[i].GetComponent<SpriteRenderer>();
+            rend.material.color = Color.red;
+        }
+    }
+
+    public void GoToLoseScene()
+    {
+        gameController.DeleteOneLife();
+        if (gameController.GetLives()>0)
+            gameController.LoadLoseScene();
+        else
+            gameController.LoadGameOverScene();
     }
 
     public void SetShape(Sprite image)

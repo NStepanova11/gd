@@ -132,6 +132,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimerPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 4770320872450127648, guid: 118048d8dc3442545bf3afca25b7f924,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4770320873781773303, guid: 118048d8dc3442545bf3afca25b7f924,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -236,11 +241,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4770320872450127648, guid: 118048d8dc3442545bf3afca25b7f924,
-        type: 3}
-      propertyPath: m_Text
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 118048d8dc3442545bf3afca25b7f924, type: 3}
@@ -411,6 +411,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameController
       objectReference: {fileID: 0}
+    - target: {fileID: 7537624803301938229, guid: 047c14665a64c2e499a704f438b432d9,
+        type: 3}
+      propertyPath: levelCanvas
+      value: 
+      objectReference: {fileID: 5789780830907365411, guid: 3a7959aa5e57a5b41abadfedafe67474,
+        type: 3}
     - target: {fileID: 7537624803301938228, guid: 047c14665a64c2e499a704f438b432d9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -466,12 +472,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7537624803301938229, guid: 047c14665a64c2e499a704f438b432d9,
-        type: 3}
-      propertyPath: levelCanvas
-      value: 
-      objectReference: {fileID: 5789780830907365411, guid: 3a7959aa5e57a5b41abadfedafe67474,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 047c14665a64c2e499a704f438b432d9, type: 3}
 --- !u!114 &956731591 stripped
@@ -1296,13 +1296,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shape: {fileID: 4112247099529122278, guid: 8c2864838fff3ca4ba3bcf2e01dc8071, type: 3}
   shapeType_1:
-  - {fileID: -839973057464317257, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
-  - {fileID: -5291114112143632475, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
-  - {fileID: -1846009369808837914, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
+  - {fileID: 7875381207487597483, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
+  - {fileID: 6772059435730307041, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
+  - {fileID: 7859175571067589561, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
   shapeType_2:
   - {fileID: -2691500465676119050, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
   - {fileID: 7075224460673086307, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
-  - {fileID: 5987759782803110382, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
+  - {fileID: 437532188359009392, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
   shapeType_3:
   - {fileID: 3784751890958780610, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
   - {fileID: 6140998745648623778, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
