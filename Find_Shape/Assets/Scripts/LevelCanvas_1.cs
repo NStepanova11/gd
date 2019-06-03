@@ -24,13 +24,14 @@ public class LevelCanvas_1 : MonoBehaviour
 	public Text levelTitle;
 	public Text livesText;
 	public Text timerText;
-
+	public Image timerPanel;
 	public bool isChangeAngle;
 	public bool isChangeColor;
 	private int[] rotateAngles = {45, 90, 135, 180};
 
 	void Start()
 	{
+		timerPanel =  GameObject.Find("TimerPanel").GetComponent<Image>();
 		posIndexes = gameController.GetPosIndexes();
 		pos = gameController.GetShapeCoords();
 		levelPurpose = gameController.GetLevelPurpose(posIndexes);
@@ -74,6 +75,10 @@ public class LevelCanvas_1 : MonoBehaviour
 	{
 		gameController.UpdateTimer();
 		timerText.text = gameController.GetTimeLimit().ToString();
+		if (gameController.GetTimeLimit()<=15 && gameController.GetTimeLimit()>3)
+         	timerPanel.color = UnityEngine.Color.yellow;
+		else if (gameController.GetTimeLimit()<=3) 
+		    timerPanel.color = UnityEngine.Color.red;
 	}
 
 	void Update()
