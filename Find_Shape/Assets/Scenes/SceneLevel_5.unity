@@ -880,6 +880,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimerPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 4770320872450127648, guid: 118048d8dc3442545bf3afca25b7f924,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4770320873781773303, guid: 118048d8dc3442545bf3afca25b7f924,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -984,11 +989,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4770320872450127648, guid: 118048d8dc3442545bf3afca25b7f924,
-        type: 3}
-      propertyPath: m_Text
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 118048d8dc3442545bf3afca25b7f924, type: 3}
@@ -1280,20 +1280,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shape: {fileID: 4112247099529122278, guid: 8c2864838fff3ca4ba3bcf2e01dc8071, type: 3}
   shapeType_1:
+  - {fileID: 944965079671528178, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
+  - {fileID: -7134931351297524077, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
   - {fileID: 7875381207487597483, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
-  - {fileID: 6772059435730307041, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
-  - {fileID: 3784751890958780610, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
-  - {fileID: 3180469886793834520, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
+  - {fileID: -8570493008931236533, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
   shapeType_2:
-  - {fileID: -2546019899676304938, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
-  - {fileID: 8033599866383714777, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
-  - {fileID: -5847561767337057963, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
-  - {fileID: 3736500384502103562, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
+  - {fileID: -8620222388837841539, guid: ca807c3582aad1045b954f618958e89c, type: 3}
+  - {fileID: 9108823462920907764, guid: ca807c3582aad1045b954f618958e89c, type: 3}
+  - {fileID: 606774496892696130, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
+  - {fileID: 7447495942412185700, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
   shapeType_3:
-  - {fileID: 721076926398257977, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
-  - {fileID: -8786223983493811607, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
-  - {fileID: 9176829404843801951, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
-  - {fileID: -8080127235123528357, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
+  - {fileID: -7201079338698525413, guid: ca807c3582aad1045b954f618958e89c, type: 3}
+  - {fileID: -5080215552869305884, guid: ca807c3582aad1045b954f618958e89c, type: 3}
+  - {fileID: 6444924077466738375, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
+  - {fileID: 1751846550405899079, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
   gameController: {fileID: 2030314816}
   levelObject: {fileID: 1989371249}
   purposeText: {fileID: 1091304619}
@@ -1302,6 +1302,7 @@ MonoBehaviour:
   levelTitle: {fileID: 2103965330}
   livesText: {fileID: 136639639}
   timerText: {fileID: 1796193581}
+  timerPanel: {fileID: 0}
   isChangeAngle: 0
   isChangeColor: 0
 --- !u!1001 &2030314815

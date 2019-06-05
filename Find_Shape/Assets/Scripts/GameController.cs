@@ -11,12 +11,12 @@ public class GameController : MonoBehaviour
     private static List<string> sceneNames = new List<string>();
     private static int sceneCount;
     private static int currentSceneNumber=0;
-    private static int gameScore = 0;
-    private static int recordScore = 0;
-    private static int livesScore = 3;
+    private static int gameScore = 0; //загужать из файла
+    private static int recordScore = 0; //загружать из файла
+    private static int livesScore = 3; //загружать из файла
 	private int timeLimit=31; 
     private static int timeBall;
-    private string fileName = "record.txt";
+    private string recordFileName = "record.txt";
     private static int startRecord=0;
 
     private List<string> notLevelScenes = new List<string>{
@@ -61,9 +61,8 @@ public class GameController : MonoBehaviour
     {
         gameScore+=100;
         gameScore+=timeBall;
-        if (timeBall>20)
+        if (timeBall>25)
             livesScore++;
-        //Debug.Log("-----"+scoreForSeconds);
     }
 
     public int GetGameScore()
@@ -87,12 +86,12 @@ public class GameController : MonoBehaviour
 
     public void SaveRecord()
     {
-            if (File.Exists(fileName) != true) {  //проверяем есть ли такой файл, если его нет, то создаем
-                using (StreamWriter sw = new StreamWriter(new FileStream(fileName, FileMode.Create, FileAccess.Write))) {
+            if (File.Exists(recordFileName) != true) {  //проверяем есть ли такой файл, если его нет, то создаем
+                using (StreamWriter sw = new StreamWriter(new FileStream(recordFileName, FileMode.Create, FileAccess.Write))) {
                     sw.WriteLine(recordScore);             //пишем строчку, или пишем что хотим
                 }
             } else {                              //если файл есть, то откываем его и пишем в него 
-                using (StreamWriter sw = new StreamWriter(new FileStream(fileName, FileMode.Truncate, FileAccess.Write))) {
+                using (StreamWriter sw = new StreamWriter(new FileStream(recordFileName, FileMode.Truncate, FileAccess.Write))) {
                     (sw.BaseStream).Seek(0, SeekOrigin.End);         //идем в конец файла и пишем строку или пишем то, что хотим
                     sw.WriteLine(recordScore);
                 }
@@ -102,11 +101,52 @@ public class GameController : MonoBehaviour
     public void ReadRecord()
     {
         string recString;
-        using (StreamReader r = new StreamReader(fileName))
+        if (File.Exists(recordFileName) == true)
         {
-            recString =  r.ReadLine();  
+            using (StreamReader r = new StreamReader(recordFileName))
+            {
+                recString =  r.ReadLine();  
+            }
+            recordScore = int.Parse(recString);
         }
-        recordScore = int.Parse(recString);
+    }
+
+    private string gameStatusFile = "gameStatus.txt";
+    public void SaveGameStatus()
+    {
+        if (File.Exists(gameStatusFile) != true) {  
+                using (StreamWriter sw = new StreamWriter(new FileStream(gameStatusFile, FileMode.Create, FileAccess.Write))) {
+                    sw.WriteLine(gameScore);
+                    sw.WriteLine(livesScore);
+                    sw.WriteLine(currentSceneNumber);
+                }
+            } 
+        else 
+        {
+            using (StreamWriter sw = new StreamWriter(new FileStream(gameStatusFile, FileMode.Truncate, FileAccess.Write))) {
+                (sw.BaseStream).Seek(0, SeekOrigin.End);
+                sw.WriteLine(gameScore);
+                sw.WriteLine(livesScore);
+                sw.WriteLine(currentSceneNumber);
+            }
+        }
+    }
+
+    public void GetLastGameStatus()
+    {
+        List<string> lines = new List<string>();
+        if (File.Exists(gameStatusFile) == true){
+            using (StreamReader r = new StreamReader(gameStatusFile))
+            {
+                while(!r.EndOfStream)
+                {
+                    lines.Add(r.ReadLine());
+                }
+                gameScore = int.Parse(lines[0]);
+                livesScore = int.Parse(lines[1]);
+                currentSceneNumber = int.Parse(lines[2]);
+            }
+        }
     }
 
     public int GetLevel()
@@ -133,19 +173,11 @@ public class GameController : MonoBehaviour
             sceneNames.Add(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex( i )));
         }
 
-
         for(int j=0; j<notLevelScenes.Count; j++)
         {
             sceneNames.Remove(notLevelScenes[j]);
         }
         sceneCount-=notLevelScenes.Count;
-       /* 
-        sceneNames.Remove("MainMenuScene");
-        sceneNames.Remove("WinScene");
-        sceneNames.Remove("LoseScene");
-        sceneNames.Remove("HelpScene");
-        sceneNames.Remove("GameOverScene");
-        */
     }
 
     public void BackToMainMenu()
@@ -159,30 +191,58 @@ public class GameController : MonoBehaviour
 		Debug.Log("Exit pressed!");
     }
 
-    public void LoadNewLevelScene()
+    public void PlayNewGame()
     {
-       // Debug.Log("level: "+currentSceneNumber+" count: "+sceneCount);
+        SetDefaultGameValues();
+        LoadCurrentLevelScene();
+    }
+
+
+    public void PlaySavedGame()
+    {
+        GetLastGameStatus();
+        LoadCurrentLevelScene();
+    }
+    
+    public void LoadCurrentLevelScene()
+    {
         if (currentSceneNumber<sceneCount)
             SceneManager.LoadScene(sceneNames[currentSceneNumber]);
         else
-            SceneManager.LoadScene("CongratScene");
+            {
+                int lastScore = gameScore;
+                SetDefaultGameValues();
+                SceneManager.LoadScene("CongratScene");
+            }
     }
 
-    public void LoadCurrentLevelScene()
+    public void SetDefaultGameValues()
     {
-        SceneManager.LoadScene(sceneNames[currentSceneNumber]);
+        gameScore = 0;
+        livesScore = 3;
+        currentSceneNumber=0;
     }
 
     public void LoadWinScene()
     {
         currentSceneNumber++;
-        //chanceByLevel=2;
+        SaveGameStatus();
         SceneManager.LoadScene("WinScene"); //mainMenuScene
     }
 
     public void LoadLoseScene()
     {
+        SaveGameStatus();
         SceneManager.LoadScene("LoseScene");
+    }
+
+
+    public void LoadGameOverScene()
+    {
+        int lastScore = gameScore;
+        SetDefaultGameValues();
+        SaveGameStatus();
+        SceneManager.LoadScene("GameOverscene");
     }
 
     public void LoadHelpScene()
@@ -192,29 +252,9 @@ public class GameController : MonoBehaviour
 
     public int GetCurrentLevelNumber()
     {
-        //Debug.Log("levelId ->"+currentSceneNumber);
         return currentSceneNumber;
     }
-/*
-    public void UpdateChanceForLevel()
-    {
-        chanceByLevel--;
-    }
 
-    public int GetCountOfChances()
-    {
-        return chanceByLevel;
-    }
-*/
-    public void LoadGameOverScene()
-    {
-        int lastScore = gameScore;
-
-        currentSceneNumber=0;
-        livesScore = 3;
-        gameScore = 0;
-        SceneManager.LoadScene("GameOverscene");
-    }
 
     public void DeleteOneLife()
     {

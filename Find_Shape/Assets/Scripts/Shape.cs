@@ -18,24 +18,11 @@ public class Shape : MonoBehaviour
             
             Invoke("ColorGoodShapes", 1);
             Invoke("GoToWinScene", 1.5f);
-            /*
-            for (int i = 0; i < goodShapes.Length; i++)
-            {
-                Renderer rend = goodShapes[i].GetComponent<SpriteRenderer>();
-                rend.material.color = Color.green;
-            }
-            gameController.UpdateGameScore();
-            gameController.UpdateRecord();
-            gameController.LoadWinScene();
-            */
-           
         }
         else
         {
             Invoke("ColorAllShapes", 1);
             Invoke("GoToLoseScene", 1.5f);
-            //gameController.UpdateChanceForLevel();
-            
         }
     }
 

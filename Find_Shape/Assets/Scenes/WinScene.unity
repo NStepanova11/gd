@@ -751,7 +751,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7537624803301938229, guid: 047c14665a64c2e499a704f438b432d9,
           type: 3}
-        m_MethodName: LoadNewLevelScene
+        m_MethodName: LoadCurrentLevelScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

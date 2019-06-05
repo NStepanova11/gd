@@ -436,6 +436,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PurposeText
       objectReference: {fileID: 0}
+    - target: {fileID: 5427313896365007330, guid: 5346e314260de8b41a1eecc0a80ff21b,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7443709023490365069, guid: 5346e314260de8b41a1eecc0a80ff21b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -541,11 +546,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5427313896365007330, guid: 5346e314260de8b41a1eecc0a80ff21b,
-        type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5346e314260de8b41a1eecc0a80ff21b, type: 3}
 --- !u!224 &978246906 stripped
@@ -583,6 +583,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameController
+      objectReference: {fileID: 0}
+    - target: {fileID: 7537624803301938229, guid: 047c14665a64c2e499a704f438b432d9,
+        type: 3}
+      propertyPath: levelCanvases.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7537624803301938229, guid: 047c14665a64c2e499a704f438b432d9,
+        type: 3}
+      propertyPath: levelCanvases.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7537624803301938228, guid: 047c14665a64c2e499a704f438b432d9,
         type: 3}
@@ -638,16 +648,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7537624803301938229, guid: 047c14665a64c2e499a704f438b432d9,
-        type: 3}
-      propertyPath: levelCanvases.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7537624803301938229, guid: 047c14665a64c2e499a704f438b432d9,
-        type: 3}
-      propertyPath: levelCanvases.Array.data[0]
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 047c14665a64c2e499a704f438b432d9, type: 3}
@@ -785,15 +785,15 @@ MonoBehaviour:
   shape: {fileID: 4112247099529122278, guid: 8c2864838fff3ca4ba3bcf2e01dc8071, type: 3}
   shapeType_1:
   - {fileID: -839973057464317257, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
-  - {fileID: -1846009369808837914, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
+  - {fileID: -5291114112143632475, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
   - {fileID: -5151541105068266898, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
   shapeType_2:
-  - {fileID: -2691500465676119050, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
-  - {fileID: 5987759782803110382, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
-  - {fileID: 437532188359009392, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
+  - {fileID: -1607590492099147465, guid: ca807c3582aad1045b954f618958e89c, type: 3}
+  - {fileID: -8620222388837841539, guid: ca807c3582aad1045b954f618958e89c, type: 3}
+  - {fileID: 2469465712599144858, guid: ca807c3582aad1045b954f618958e89c, type: 3}
   shapeType_3:
   - {fileID: 8109648747707582588, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
-  - {fileID: 7447495942412185700, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
+  - {fileID: 606774496892696130, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
   - {fileID: -4111088895893850696, guid: 7f28660b8bf09c342850a672259aad3f, type: 3}
   gameController: {fileID: 1789287614}
   levelObject: {fileID: 1870386123}
@@ -803,6 +803,7 @@ MonoBehaviour:
   levelTitle: {fileID: 5157374279392649629}
   livesText: {fileID: 5818484541224787773}
   timerText: {fileID: 145839551}
+  timerPanel: {fileID: 0}
   isChangeAngle: 0
   isChangeColor: 0
 --- !u!1001 &1547053242484965535
@@ -1017,6 +1018,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimerPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 4770320872450127648, guid: 118048d8dc3442545bf3afca25b7f924,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4770320873781773303, guid: 118048d8dc3442545bf3afca25b7f924,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1121,11 +1127,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4770320872450127648, guid: 118048d8dc3442545bf3afca25b7f924,
-        type: 3}
-      propertyPath: m_Text
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 118048d8dc3442545bf3afca25b7f924, type: 3}
